@@ -1,50 +1,30 @@
 
-  function josephus(items, k){
-    var result = [], index = 0;
-    while (items.length > 0){
-      index = (index + k - 1) % items.length;
-      // console.log(index)
-      result = result.concat(items.splice(index, 1));
-    }
-    return result;
+function josephus(items, k) {
+  var result = [], index = 0;
+  while (items.length > 0) {
+    index = (index + k - 1) % items.length;
+    // console.log(index)
+    result = result.concat(items.splice(index, 1));
   }
+  return result;
+}
 
 // console.log(josephus([true, false, true, true, false, false, true], 3))
 // console.log(josephus([1, 3, 4, 5, 6, 7, 8], 3))
 
-
 // ------------------------------------------------------------------------------------------------- //
 
-// function isSolved(board) {
+function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
+  if (dolphin) {
+    sharkSpeed = (sharkSpeed / 2)
+  }
 
-//   let solutions = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]]
-//   let flattentedBoard = board.flat()
+  let youTime = pontoonDistance / youSpeed
+  let sharkTime = sharkDistance / sharkSpeed
 
-//   for(let i = 0; i < solutions.length; i++){
-//     let currSolutionSeg = solutions[i]
-//     for(let j = 0; j < currSolutionSeg.length; j++){
-//       if()
-//     }
-//     }
-//   }
-// }
+  return youTime < sharkTime ? 'Alive!' : 'Shark Bait!'
 
-// ------------------------------------------------------------------------------------------------- //
-
-// function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
-//   if (dolphin) {
-//     sharkSpeed = (sharkSpeed / 2)
-//   }
-
-//   const youTime = pontoonDistance / youSpeed
-//   const sharkTime = sharkDistance / sharkSpeed
-
-//   // console.log('youTime:', youTime, 'sharkTime:', sharkTime)
-
-//   // if (youTime < sharkTime) === true, return 'Alive!' else return Shark Bait!'
-//   return youTime < sharkTime ? 'Alive!' : 'Shark Bait!'
-
-// }
+}
 
 // console.log(shark(12, 50, 4, 8, true))
 
@@ -136,3 +116,46 @@ function sockMerchant(n, arr) {
 }
 
 // console.log(sockMerchant(9, [10, 20, 20, 10, 10, 30, 50, 10, 20]))
+
+// ------------------------------------------------------------------------------------------------- //
+
+function staircase(int) {
+  let output = []
+  for (let i = 1; i <= int; i++) {
+    str = ''
+    newStr = str.padEnd(i, '#')
+    newStr = newStr.padStart(int, ' ')
+    output.push(newStr)
+  }
+  return output
+}
+
+// console.log(staircase(5))
+
+// ------------------------------------------------------------------------------------------------- //
+
+function pageCount(n, p) {
+  // put the number of pages (n) in pairs, where 1 is on the right side
+  // find how many pages a person has to flip to get to the desired page (p)
+  // if they open in the first page and if they open in the last page
+  let book = []
+  let countFromFirst = 0;
+  let countFromLast = 0;
+
+  for(let i = 0; i <= n; i+=2){
+    book.push([i, i +1])
+  }
+
+  countFromFirst = book.findIndex(el => el.some(number => number === p))
+
+  countFromLast = book.reverse().findIndex(el => el.some(number => number === p))
+
+  if(countFromFirst < countFromLast){
+    return countFromFirst
+  } return countFromLast
+
+}
+
+// console.log(pageCount(5, 4))
+
+// ------------------------------------------------------------------------------------------------- //

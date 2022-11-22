@@ -142,20 +142,153 @@ function pageCount(n, p) {
   let countFromFirst = 0;
   let countFromLast = 0;
 
-  for(let i = 0; i <= n; i+=2){
-    book.push([i, i +1])
+  for (let i = 0; i <= n; i += 2) {
+    book.push([i, i + 1])
   }
 
   countFromFirst = book.findIndex(el => el.some(number => number === p))
 
   countFromLast = book.reverse().findIndex(el => el.some(number => number === p))
 
-  if(countFromFirst < countFromLast){
+  if (countFromFirst < countFromLast) {
     return countFromFirst
   } return countFromLast
 
 }
 
 // console.log(pageCount(5, 4))
+
+// ------------------------------------------------------------------------------------------------- //
+
+
+function factorial(n) {
+  // This function returns the factorial of a given number.
+  // You must set the parameters of the function yourself
+  //  The input will be a positive integer greater than zero
+  if (!n) {
+    return 1
+  } else {
+    return n * factorial(n - 1)
+  }
+}
+
+// console.log(factorial(6))
+
+// ------------------------------------------------------------------------------------------------- //
+
+const isPalindrome = function (head) {
+  for (let i = 0; i < head.length; i++) {
+    let currEl = head[i]
+    let currEndEl = head[head.length - (i + 1)]
+
+    if (currEl !== currEndEl) {
+      return false
+    }
+  }
+  return true
+};
+
+// console.log(isPalindrome([1,2]))
+
+// ------------------------------------------------------------------------------------------------- //
+
+const maximumWealth = function (accounts) {
+  let customersTotalWealth = []
+
+  // iterate through all accounts     
+  accounts.forEach((account, idx) => {
+    let sum = 0;
+    // adding all of the account wealth 
+    account.forEach(el => {
+      sum += el
+    })
+    // then add to customers a tuple with the customer number and their total wealth         
+    customersTotalWealth.push([idx + 1, sum])
+  })
+
+  // sort them by richest to poorest      
+  customersTotalWealth.sort((a, b) => b[1] - a[1])
+
+  //return the richest customer       
+  return customersTotalWealth[0][1]
+
+};
+
+// console.log(maximumWealth([[1,2,3], [3,2,1]]))
+
+// ------------------------------------------------------------------------------------------------- //
+
+const canConstruct = function (ransomNote, magazine) {
+  // create arrays of the string inputs so iteration is easier     
+  let arrMagazine = magazine.split('')
+  let arrRansomNote = ransomNote.split('')
+
+  // iterate through the notes characters      
+  for (let i = 0; i < arrRansomNote.length; i++) {
+    // if magazine has the character          
+    if (arrMagazine.indexOf(arrRansomNote[i]) !== -1) {
+      // we remove it from magazine, meaning it's been already used
+      console.log(arrMagazine.indexOf(arrRansomNote[i]))
+      arrMagazine.splice(arrMagazine.indexOf(arrRansomNote[i]), 1)
+      console.log(arrMagazine);
+    } else {
+      // if the magazine doesn't have the desired character, we return false 
+      return false
+    }
+  }
+  // else, if all of the necessary characters for the note were found, we return true     
+  return true
+
+};
+
+// console.log(canConstruct('acc', 'abac'));
+
+// ------------------------------------------------------------------------------------------------- //
+
+const binarySearch = function (arr, target) {
+  let first = 0
+  let last = arr.length - 1
+
+  while (first <= last) {
+    let midPoint = Math.floor((first + last) / 2)
+
+    if (arr[midPoint] === target) {
+      return midPoint
+    } else if (arr[midPoint] < target) {
+      first = midPoint + 1
+    } else {
+      last = midPoint - 1
+    }
+  }
+}
+
+// console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 14));
+
+// ------------------------------------------------------------------------------------------------- //
+
+
+function solution(S) {
+  // write your code in JavaScript (Node.js 14)
+  let arr = S.split('')
+  if (arr.length === 1) {
+    return -1
+  }
+  let countH = 0;
+  let countHyphen = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 'H' && arr[i + 1] === '-') {
+      if (arr[i + 2] === 'H') {
+        arr.splice(i + 1, 1, 'T')
+      } else if (arr[i + 2] === '-') {
+        arr.splice(i + 1, 1, 'T')
+      }
+      i++
+    }
+  }
+  let tanks = arr.filter(char => char === 'T')
+  return tanks.length
+}
+
+// console.log(solution('HH-HH'))
 
 // ------------------------------------------------------------------------------------------------- //

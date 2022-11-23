@@ -606,3 +606,15 @@ return mostWords
 // const mostWordsFound = sentences => sentences.map(item => item.split(' ')).sort((a,b) => b.length - a.length)[0].length
 
 // ------------------------------------------------------------------------------------------------- //
+
+
+const minimumSum = function(num) {
+  let sortedArr = num.toString().split('').sort((a,b) => a - b)
+  return parseInt(sortedArr[0] + sortedArr[2]) + parseInt(sortedArr[1] + sortedArr[3])
+
+};
+
+// console.log(minimumSum([2932]))
+
+// ------------------------------------------------------------------------------------------------- //
+

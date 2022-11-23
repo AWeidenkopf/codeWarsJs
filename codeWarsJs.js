@@ -292,3 +292,82 @@ function solution(S) {
 // console.log(solution('HH-HH'))
 
 // ------------------------------------------------------------------------------------------------- //
+
+const unequalTriplets = function (nums) {
+
+  let count = 0;
+  let prev = 0;
+  let len = nums.length
+
+  let noDuplicates = nums.reduce((result, current) => {
+    return result[current] = result[current] ? result[current] + 1 : 1, result
+  }, {})
+
+  for (occ of Object.values(noDuplicates)) {
+    len -= occ;
+    count += (prev * occ * len);
+    prev += occ
+  }
+  return count
+}
+
+// console.log(unequalTriplets([3, 4, 1, 2]))
+
+// ------------------------------------------------------------------------------------------------- //
+
+
+const twoOutOfThree = function(nums1, nums2, nums3) {
+  let newArr = [];
+  newArr.push(...nums1.filter(num => nums2.includes(num) || nums3.includes(num)))
+  newArr.push(...nums2.filter(num => nums3.includes(num)))
+  // array Set returns a new obj of any type containing only unique values
+  return Array.from(new Set(newArr))
+};
+
+function isInTwoArrays(nums1, nums2, nums3) {
+  let result = []
+
+  for(i = 0; i < nums1.length; i++) {
+      if(nums2.includes(nums1[i]) || nums3.includes(nums1[i])) {
+          result.push(nums1[i])
+      }
+  }
+
+  for(j = 0; j < nums2.length; j++){
+      if(nums3.includes(nums2[j])) {
+          result.push(nums2[j])
+      }
+  }
+
+  let noDuplicates = result.reduce((resultArr, curr) => {
+      return resultArr.includes(curr) ? resultArr : resultArr.push(curr), resultArr
+  }, [])
+
+  return noDuplicates
+}
+
+function solution(nums1, nums2, nums3) {
+let result = {}
+nums1.forEach(el => {
+    result[el] = 1 // {1: false, 3: false, 2: false}
+})
+
+nums2.forEach(el => {
+    if (result[el] && (result[el] === 1 || result[el] === 4)) {
+        result[el] = 4 // {1: false, 3: true, 2: true}    
+    } else {
+        result[el] = 2
+    }
+})
+
+nums3.forEach(el => {
+    if (result[el])
+    result[el] += 8 // {1: false, 3: true, 2: true}
+})
+
+return Object.keys(result).filter(key => result[key] >= 4) // {1: false, 3: true, 2: true} => [3, 2]
+};
+
+// console.log(isInAllArrays([1,1,2,3,5], [5,2,3,4], [3,4]));
+
+// ------------------------------------------------------------------------------------------------- //

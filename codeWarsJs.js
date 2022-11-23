@@ -618,3 +618,14 @@ const minimumSum = function(num) {
 
 // ------------------------------------------------------------------------------------------------- //
 
+const kidsWithCandies = function(candies, extraCandies) {
+  // first find the greastest value of candies in the array
+  const max = Math.max(...candies);
+  // then return an array where item will be true 
+  // if the curr number + extra candies is equals or greater than max
+  // and false
+  // if the curr number + extra candies is equals or greater than max
+  return candies.map(item => item + extraCandies >= max);
+};
+
+// console.log(kidsWithCandies([2,3,5,1,3], 3));

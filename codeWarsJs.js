@@ -591,3 +591,18 @@ const numIdenticalPairs = function (nums) {
 // console.log(numIdenticalPairs([1, 2, 3, 1, 1, 3]))
 // ------------------------------------------------------------------------------------------------- //
 
+const mostWordsFound = function(sentences) {
+  let mostWords = 0;
+for(let i = 0; i < sentences.length; i++) {
+  if(sentences[i].split(' ').length > mostWords){
+    mostWords = sentences[i].split(' ').length
+  }
+}
+return mostWords
+};
+
+// console.log(mostWordsFound(["please wait", "continue to fight", "continue to win"]));
+
+// const mostWordsFound = sentences => sentences.map(item => item.split(' ')).sort((a,b) => b.length - a.length)[0].length
+
+// ------------------------------------------------------------------------------------------------- //

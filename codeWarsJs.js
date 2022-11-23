@@ -316,7 +316,7 @@ const unequalTriplets = function (nums) {
 // ------------------------------------------------------------------------------------------------- //
 
 
-const twoOutOfThree = function(nums1, nums2, nums3) {
+const twoOutOfThree = function (nums1, nums2, nums3) {
   let newArr = [];
   newArr.push(...nums1.filter(num => nums2.includes(num) || nums3.includes(num)))
   newArr.push(...nums2.filter(num => nums3.includes(num)))
@@ -327,45 +327,45 @@ const twoOutOfThree = function(nums1, nums2, nums3) {
 function isInTwoArrays(nums1, nums2, nums3) {
   let result = []
 
-  for(i = 0; i < nums1.length; i++) {
-      if(nums2.includes(nums1[i]) || nums3.includes(nums1[i])) {
-          result.push(nums1[i])
-      }
+  for (i = 0; i < nums1.length; i++) {
+    if (nums2.includes(nums1[i]) || nums3.includes(nums1[i])) {
+      result.push(nums1[i])
+    }
   }
 
-  for(j = 0; j < nums2.length; j++){
-      if(nums3.includes(nums2[j])) {
-          result.push(nums2[j])
-      }
+  for (j = 0; j < nums2.length; j++) {
+    if (nums3.includes(nums2[j])) {
+      result.push(nums2[j])
+    }
   }
 
   let noDuplicates = result.reduce((resultArr, curr) => {
-      return resultArr.includes(curr) ? resultArr : resultArr.push(curr), resultArr
+    return resultArr.includes(curr) ? resultArr : resultArr.push(curr), resultArr
   }, [])
 
   return noDuplicates
 }
 
 function solution(nums1, nums2, nums3) {
-let result = {}
-nums1.forEach(el => {
+  let result = {}
+  nums1.forEach(el => {
     result[el] = 1 // {1: false, 3: false, 2: false}
-})
+  })
 
-nums2.forEach(el => {
+  nums2.forEach(el => {
     if (result[el] && (result[el] === 1 || result[el] === 4)) {
-        result[el] = 4 // {1: false, 3: true, 2: true}    
+      result[el] = 4 // {1: false, 3: true, 2: true}    
     } else {
-        result[el] = 2
+      result[el] = 2
     }
-})
+  })
 
-nums3.forEach(el => {
+  nums3.forEach(el => {
     if (result[el])
-    result[el] += 8 // {1: false, 3: true, 2: true}
-})
+      result[el] += 8 // {1: false, 3: true, 2: true}
+  })
 
-return Object.keys(result).filter(key => result[key] >= 4) // {1: false, 3: true, 2: true} => [3, 2]
+  return Object.keys(result).filter(key => result[key] >= 4) // {1: false, 3: true, 2: true} => [3, 2]
 };
 
 // console.log(isInAllArrays([1,1,2,3,5], [5,2,3,4], [3,4]));
@@ -378,7 +378,7 @@ return Object.keys(result).filter(key => result[key] >= 4) // {1: false, 3: true
 
 // Return the array ans.
 
- 
+
 
 // Example 1:
 
@@ -395,8 +395,8 @@ return Object.keys(result).filter(key => result[key] >= 4) // {1: false, 3: true
 // - ans = [nums[0],nums[1],nums[2],nums[3],nums[0],nums[1],nums[2],nums[3]]
 // - ans = [1,3,2,1,1,3,2,1]
 
-const getConcatenation = function(nums) {
-  return [...nums,...nums]
+const getConcatenation = function (nums) {
+  return [...nums, ...nums]
 };
 
 // const getConcatenation = function(nums) {
@@ -427,15 +427,15 @@ const getConcatenation = function(nums) {
 //     = [nums[5], nums[0], nums[1], nums[2], nums[3], nums[4]]
 //     = [4,5,0,1,2,3]
 
-const buildArray = function(nums) {
+const buildArray = function (nums) {
   let ans = []
-  
+
   nums.forEach(el => {
-      ans.push(nums[el])
+    ans.push(nums[el])
   })
-  
+
   return ans
-  
+
 };
 
 // use map whenever i want to return an array of same length
@@ -466,7 +466,7 @@ const buildArray = function(nums) {
 // Output: [395.26000,251.79800]
 // Explanation: Temperature at 122.11 Celsius converted in Kelvin is 395.26 and converted in Fahrenheit is 251.798.
 
-const convertTemperature = function(celsius) {
+const convertTemperature = function (celsius) {
   return [celsius + 273.15, celsius * 1.80 + 32.00]
 };
 // ------------------------------------------------------------------------------------------------- //
@@ -490,10 +490,10 @@ const convertTemperature = function(celsius) {
 // Input: nums = [3,1,2,10,1]
 // Output: [3,4,6,16,17]
 
-const runningSum = function(nums) {
-return nums.map((num,idx) => {
-  return idx === 0? num : nums[idx] = nums[idx-1] + nums[idx]
-})
+const runningSum = function (nums) {
+  return nums.map((num, idx) => {
+    return idx === 0 ? num : nums[idx] = nums[idx - 1] + nums[idx]
+  })
 };
 
 // console.log(runningSum([1,2,3,4]));
@@ -507,7 +507,7 @@ return nums.map((num,idx) => {
 
 // Given an array of strings operations containing a list of operations, return the final value of X after performing all the operations.
 
- 
+
 
 // Example 1:
 
@@ -527,15 +527,67 @@ return nums.map((num,idx) => {
 // ++X: X is incremented by 1, X = 0 + 1 = 1.
 // ++X: X is incremented by 1, X = 1 + 1 = 2.
 // X++: X is incremented by 1, X = 2 + 1 = 3.
-const finalValueAfterOperations = function(operations) {
+const finalValueAfterOperations = function (operations) {
   let result = 0;
-  for(let i = 0; i < operations.length; i++) {
-      if(operations[i].includes('-')){
-          result -= 1
-      } else {
-          result += 1
-      }
+  for (let i = 0; i < operations.length; i++) {
+    if (operations[i].includes('-')) {
+      result -= 1
+    } else {
+      result += 1
+    }
   }
   return result
 };
 // ------------------------------------------------------------------------------------------------- //
+//Shuffle the Array
+// Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
+
+// Return the array in the form [x1,y1,x2,y2,...,xn,yn].
+
+// Example 1:
+
+// Input: nums = [2,5,1,3,4,7], n = 3
+// Output: [2,3,5,4,1,7] 
+// Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is [2,3,5,4,1,7].
+// Example 2:
+
+// Input: nums = [1,2,3,4,4,3,2,1], n = 4
+// Output: [1,4,2,3,3,2,4,1]
+// Example 3:
+
+// Input: nums = [1,1,2,2], n = 2
+// Output: [1,2,1,2]
+
+const shuffle = function (nums, n) {
+  let output = []
+  for (let i = 0; i < n; i++) {
+    output[2 * i] = nums[i];
+    output[2 * i + 1] = nums[n + i];
+  }
+  return output;
+};
+
+// const shuffle = (nums, n) => nums.slice(0, n).flatMap((x, i) => [x, nums[i + n]])
+
+
+// console.log(shuffle([2,5,1,3,4,7], 3));
+// ------------------------------------------------------------------------------------------------- //
+const numIdenticalPairs = function (nums) {
+  let goodPairCount = 0;
+
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] == nums[j]){
+        goodPairCount++;
+      }
+
+    }
+  }
+
+  return goodPairCount;
+
+};
+
+// console.log(numIdenticalPairs([1, 2, 3, 1, 1, 3]))
+// ------------------------------------------------------------------------------------------------- //
+

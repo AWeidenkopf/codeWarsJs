@@ -629,3 +629,116 @@ const kidsWithCandies = function(candies, extraCandies) {
 };
 
 // console.log(kidsWithCandies([2,3,5,1,3], 3));
+
+// ------------------------------------------------------------------------------------------------- //
+
+const subtractProductAndSum = function(n) {
+  let arr = n.toString().split('')
+  
+  let product = arr.reduce((result, curr) => result * curr)
+
+  let sum = arr.reduce((result, curr) => parseInt(result) + parseInt(curr))
+
+  return product - sum
+};
+
+// console.log(subtractProductAndSum(234));
+
+// ------------------------------------------------------------------------------------------------- //
+
+const smallerNumbersThanCurrent = function(nums) {
+  let result = []
+  
+  for(let i =0; i < nums.length; i++) {
+      let count = 0;
+      for(let j = 0; j < nums.length; j++){
+          if(nums[i] > nums[j]) {
+              count ++
+          }
+      }
+      result.push(count)
+  }
+  return result
+};
+
+// ------------------------------------------------------------------------------------------------- //
+
+// const interpret = function(command) {
+//   let string = ''
+//   let arr = command.split('')
+  
+//   for(let i = 0; i < arr.length; i++) {
+//     console.log('i', arr[i]);
+//       if(arr[i] === 'G'){
+//           string += 'G'
+//       } else if(arr[i] === '(') {
+//           if(arr[i+1] === ')') {
+//               string += 'o'
+//               i++
+//           } else {
+//               string += 'al'
+//               i+=3
+//           }
+//       }
+//   }
+  
+//   return string
+// };
+
+const interpret = function(command) {
+return command.replaceAll('()', 'o').replaceAll('(al)', 'al')
+};
+
+// console.log(interpret('G()()()(al)'))
+
+// ------------------------------------------------------------------------------------------------- //
+// Given two arrays of integers nums and index. Your task is to create target array under the following rules:
+
+// Initially target array is empty.
+// From left to right read nums[i] and index[i], insert at index index[i] the value nums[i] in target array.
+// Repeat the previous step until there are no elements to read in nums and index.
+// Return the target array.
+
+// It is guaranteed that the insertion operations will be valid.
+
+ 
+
+// Example 1:
+
+// Input: nums = [0,1,2,3,4], index = [0,1,2,2,1]
+// Output: [0,4,1,3,2]
+// Explanation:
+// nums       index     target
+// 0            0        [0]
+// 1            1        [0,1]
+// 2            2        [0,1,2]
+// 3            2        [0,1,3,2]
+// 4            1        [0,4,1,3,2]
+// Example 2:
+
+// Input: nums = [1,2,3,4,0], index = [0,1,2,3,0]
+// Output: [0,1,2,3,4]
+// Explanation:
+// nums       index     target
+// 1            0        [1]
+// 2            1        [1,2]
+// 3            2        [1,2,3]
+// 4            3        [1,2,3,4]
+// 0            0        [0,1,2,3,4]
+// Example 3:
+
+// Input: nums = [1], index = [0]
+// Output: [1]
+
+const createTargetArray = function(nums, index) {
+    let arr = []
+    for(let i = 0; i < nums.length; i++) {
+      let currIdx = index[i]
+        let currInt = nums[i]
+        arr.splice(currIdx, 0, currInt)
+    }
+    return arr
+};
+
+// console.log(createTargetArray([0,1,2,3,4], [0,1,2,2,1]))
+// ------------------------------------------------------------------------------------------------- //

@@ -1004,5 +1004,23 @@ const largestLocal = function (grid) {
   return matrix;
 };
 // ------------------------------------------------------------------------------------------------- //
+
+const arithmeticTriplets = function (nums, diff) {
+  let count = 0;
+  let hash = new Set();
+
+  for (let i = 0; i < nums.length; i++) {
+    const currentNum = nums[i];
+
+    if (hash.has(currentNum - diff) && hash.has(currentNum - diff - diff)) {
+      count++;
+    }
+
+    hash.add(currentNum);
+  }
+  return count;
+};
+
+console.log(arithmeticTriplets([0, 1, 4, 6, 7, 10], 3));
 // ------------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------------- //

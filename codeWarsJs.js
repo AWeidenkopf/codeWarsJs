@@ -1,10 +1,10 @@
 
 function josephus(items, k) {
-  var result = [], index = 0;
+  var result = [], idxex = 0;
   while (items.length > 0) {
-    index = (index + k - 1) % items.length;
-    // console.log(index)
-    result = result.concat(items.splice(index, 1));
+    idxex = (idxex + k - 1) % items.length;
+    // console.log(idxex)
+    result = result.concat(items.splice(idxex, 1));
   }
   return result;
 }
@@ -37,11 +37,11 @@ function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
 //   let currEl = arr[i];
 //   if (currEl > peak) {
 //     peak = currEl
-//     peakIndex = i;
+//     peakidxex = i;
 //   }
-//   if(i > peakIndex){
+//   if(i > peakidxex){
 //     right.push(arr[i]);
-//   } else if(i <= peakIndex) {
+//   } else if(i <= peakidxex) {
 //     left.push(arr[i])
 //   }
 
@@ -55,9 +55,9 @@ function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
 
 // console.log(peak)
 // for(let i = 0; i < arr.length; i++){
-//   if(i < peakIndex){
+//   if(i < peakidxex){
 //   left.push(arr[i]);
-// } else if(i  > peakIndex){
+// } else if(i  > peakidxex){
 //   right.push(arr[i])
 // }
 // }
@@ -136,7 +136,7 @@ function staircase(int) {
 
 function pageCount(n, p) {
   // put the number of pages (n) in pairs, where 1 is on the right side
-  // find how many pages a person has to flip to get to the desired page (p)
+  // fidx how many pages a person has to flip to get to the desired page (p)
   // if they open in the first page and if they open in the last page
   let book = []
   let countFromFirst = 0;
@@ -146,9 +146,9 @@ function pageCount(n, p) {
     book.push([i, i + 1])
   }
 
-  countFromFirst = book.findIndex(el => el.some(number => number === p))
+  countFromFirst = book.fidxidxex(el => el.some(number => number === p))
 
-  countFromLast = book.reverse().findIndex(el => el.some(number => number === p))
+  countFromLast = book.reverse().fidxidxex(el => el.some(number => number === p))
 
   if (countFromFirst < countFromLast) {
     return countFromFirst
@@ -176,7 +176,7 @@ function factorial(n) {
 
 // ------------------------------------------------------------------------------------------------- //
 
-const isPalindrome = function (head) {
+const isPalidxrome = function (head) {
   for (let i = 0; i < head.length; i++) {
     let currEl = head[i]
     let currEndEl = head[head.length - (i + 1)]
@@ -188,7 +188,7 @@ const isPalindrome = function (head) {
   return true
 };
 
-// console.log(isPalindrome([1,2]))
+// console.log(isPalidxrome([1,2]))
 
 // ------------------------------------------------------------------------------------------------- //
 
@@ -226,10 +226,10 @@ const canConstruct = function (ransomNote, magazine) {
   // iterate through the notes characters      
   for (let i = 0; i < arrRansomNote.length; i++) {
     // if magazine has the character          
-    if (arrMagazine.indexOf(arrRansomNote[i]) !== -1) {
+    if (arrMagazine.idxexOf(arrRansomNote[i]) !== -1) {
       // we remove it from magazine, meaning it's been already used
-      console.log(arrMagazine.indexOf(arrRansomNote[i]))
-      arrMagazine.splice(arrMagazine.indexOf(arrRansomNote[i]), 1)
+      console.log(arrMagazine.idxexOf(arrRansomNote[i]))
+      arrMagazine.splice(arrMagazine.idxexOf(arrRansomNote[i]), 1)
       console.log(arrMagazine);
     } else {
       // if the magazine doesn't have the desired character, we return false 
@@ -372,7 +372,7 @@ function solution(nums1, nums2, nums3) {
 
 // ------------------------------------------------------------------------------------------------- //
 
-// Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+// Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-idxexed).
 
 // Specifically, ans is the concatenation of two nums arrays.
 
@@ -406,7 +406,7 @@ const getConcatenation = function (nums) {
 
 // ------------------------------------------------------------------------------------------------- //
 
-// Given a zero-based permutation nums (0-indexed), build an array ans of the same length where ans[i] = nums[nums[i]] for each 0 <= i < nums.length and return it.
+// Given a zero-based permutation nums (0-idxexed), build an array ans of the same length where ans[i] = nums[nums[i]] for each 0 <= i < nums.length and return it.
 
 // A zero-based permutation nums is an array of distinct integers from 0 to nums.length - 1 (inclusive).
 
@@ -577,7 +577,7 @@ const numIdenticalPairs = function (nums) {
 
   for (let i = 0; i < nums.length - 1; i++) {
     for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] == nums[j]){
+      if (nums[i] == nums[j]) {
         goodPairCount++;
       }
 
@@ -591,14 +591,14 @@ const numIdenticalPairs = function (nums) {
 // console.log(numIdenticalPairs([1, 2, 3, 1, 1, 3]))
 // ------------------------------------------------------------------------------------------------- //
 
-const mostWordsFound = function(sentences) {
+const mostWordsFound = function (sentences) {
   let mostWords = 0;
-for(let i = 0; i < sentences.length; i++) {
-  if(sentences[i].split(' ').length > mostWords){
-    mostWords = sentences[i].split(' ').length
+  for (let i = 0; i < sentences.length; i++) {
+    if (sentences[i].split(' ').length > mostWords) {
+      mostWords = sentences[i].split(' ').length
+    }
   }
-}
-return mostWords
+  return mostWords
 };
 
 // console.log(mostWordsFound(["please wait", "continue to fight", "continue to win"]));
@@ -608,8 +608,8 @@ return mostWords
 // ------------------------------------------------------------------------------------------------- //
 
 
-const minimumSum = function(num) {
-  let sortedArr = num.toString().split('').sort((a,b) => a - b)
+const minimumSum = function (num) {
+  let sortedArr = num.toString().split('').sort((a, b) => a - b)
   return parseInt(sortedArr[0] + sortedArr[2]) + parseInt(sortedArr[1] + sortedArr[3])
 
 };
@@ -618,8 +618,8 @@ const minimumSum = function(num) {
 
 // ------------------------------------------------------------------------------------------------- //
 
-const kidsWithCandies = function(candies, extraCandies) {
-  // first find the greastest value of candies in the array
+const kidsWithCandies = function (candies, extraCandies) {
+  // first fidx the greastest value of candies in the array
   const max = Math.max(...candies);
   // then return an array where item will be true 
   // if the curr number + extra candies is equals or greater than max
@@ -632,9 +632,9 @@ const kidsWithCandies = function(candies, extraCandies) {
 
 // ------------------------------------------------------------------------------------------------- //
 
-const subtractProductAndSum = function(n) {
+const subtractProductAndSum = function (n) {
   let arr = n.toString().split('')
-  
+
   let product = arr.reduce((result, curr) => result * curr)
 
   let sum = arr.reduce((result, curr) => parseInt(result) + parseInt(curr))
@@ -646,17 +646,17 @@ const subtractProductAndSum = function(n) {
 
 // ------------------------------------------------------------------------------------------------- //
 
-const smallerNumbersThanCurrent = function(nums) {
+const smallerNumbersThanCurrent = function (nums) {
   let result = []
-  
-  for(let i =0; i < nums.length; i++) {
-      let count = 0;
-      for(let j = 0; j < nums.length; j++){
-          if(nums[i] > nums[j]) {
-              count ++
-          }
+
+  for (let i = 0; i < nums.length; i++) {
+    let count = 0;
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[i] > nums[j]) {
+        count++
       }
-      result.push(count)
+    }
+    result.push(count)
   }
   return result
 };
@@ -666,7 +666,7 @@ const smallerNumbersThanCurrent = function(nums) {
 // const interpret = function(command) {
 //   let string = ''
 //   let arr = command.split('')
-  
+
 //   for(let i = 0; i < arr.length; i++) {
 //     console.log('i', arr[i]);
 //       if(arr[i] === 'G'){
@@ -681,34 +681,34 @@ const smallerNumbersThanCurrent = function(nums) {
 //           }
 //       }
 //   }
-  
+
 //   return string
 // };
 
-const interpret = function(command) {
-return command.replaceAll('()', 'o').replaceAll('(al)', 'al')
+const interpret = function (command) {
+  return command.replaceAll('()', 'o').replaceAll('(al)', 'al')
 };
 
 // console.log(interpret('G()()()(al)'))
 
 // ------------------------------------------------------------------------------------------------- //
-// Given two arrays of integers nums and index. Your task is to create target array under the following rules:
+// Given two arrays of integers nums and idxex. Your task is to create target array under the following rules:
 
 // Initially target array is empty.
-// From left to right read nums[i] and index[i], insert at index index[i] the value nums[i] in target array.
-// Repeat the previous step until there are no elements to read in nums and index.
+// From left to right read nums[i] and idxex[i], insert at idxex idxex[i] the value nums[i] in target array.
+// Repeat the previous step until there are no elements to read in nums and idxex.
 // Return the target array.
 
 // It is guaranteed that the insertion operations will be valid.
 
- 
+
 
 // Example 1:
 
-// Input: nums = [0,1,2,3,4], index = [0,1,2,2,1]
+// Input: nums = [0,1,2,3,4], idxex = [0,1,2,2,1]
 // Output: [0,4,1,3,2]
 // Explanation:
-// nums       index     target
+// nums       idxex     target
 // 0            0        [0]
 // 1            1        [0,1]
 // 2            2        [0,1,2]
@@ -716,10 +716,10 @@ return command.replaceAll('()', 'o').replaceAll('(al)', 'al')
 // 4            1        [0,4,1,3,2]
 // Example 2:
 
-// Input: nums = [1,2,3,4,0], index = [0,1,2,3,0]
+// Input: nums = [1,2,3,4,0], idxex = [0,1,2,3,0]
 // Output: [0,1,2,3,4]
 // Explanation:
-// nums       index     target
+// nums       idxex     target
 // 1            0        [1]
 // 2            1        [1,2]
 // 3            2        [1,2,3]
@@ -727,17 +727,17 @@ return command.replaceAll('()', 'o').replaceAll('(al)', 'al')
 // 0            0        [0,1,2,3,4]
 // Example 3:
 
-// Input: nums = [1], index = [0]
+// Input: nums = [1], idxex = [0]
 // Output: [1]
 
-const createTargetArray = function(nums, index) {
-    let arr = []
-    for(let i = 0; i < nums.length; i++) {
-      let currIdx = index[i]
-        let currInt = nums[i]
-        arr.splice(currIdx, 0, currInt)
-    }
-    return arr
+const createTargetArray = function (nums, idxex) {
+  let arr = []
+  for (let i = 0; i < nums.length; i++) {
+    let currIdx = idxex[i]
+    let currInt = nums[i]
+    arr.splice(currIdx, 0, currInt)
+  }
+  return arr
 };
 
 // console.log(createTargetArray([0,1,2,3,4], [0,1,2,2,1]))
@@ -749,7 +749,7 @@ const createTargetArray = function(nums, index) {
 
 // Return the decompressed list.
 
- 
+
 
 // Example 1:
 
@@ -763,14 +763,14 @@ const createTargetArray = function(nums, index) {
 // Input: nums = [1,1,2,3]
 // Output: [1,3,3]
 
-const decompressRLElist = function(nums) {
+const decompressRLElist = function (nums) {
   let decompressedList = []
-  for(let i = 0; i < nums.length; i++) {
-      let currPair = [nums[i], nums[i+1]]
-      for(let j = 0; j < currPair[0]; j++){
-          decompressedList.push(currPair[1])
-      }
-      i++
+  for (let i = 0; i < nums.length; i++) {
+    let currPair = [nums[i], nums[i + 1]]
+    for (let j = 0; j < currPair[0]; j++) {
+      decompressedList.push(currPair[1])
+    }
+    i++
   }
   return decompressedList
 };
@@ -778,30 +778,30 @@ const decompressRLElist = function(nums) {
 // console.log(decompressRLElist([65,44,72,15]))
 
 // ------------------------------------------------------------------------------------------------- //
-// You are given a string s and an integer array indices of the same length. The string s will be shuffled such that the character at the ith position moves to indices[i] in the shuffled string.
+// You are given a string s and an integer array idxices of the same length. The string s will be shuffled such that the character at the ith position moves to idxices[i] in the shuffled string.
 
 // Return the shuffled string.
 
- 
+
 
 // Example 1:
 
 
-// Input: s = "codeleet", indices = [4,5,6,7,0,2,1,3]
+// Input: s = "codeleet", idxices = [4,5,6,7,0,2,1,3]
 // Output: "leetcode"
 // Explanation: As shown, "codeleet" becomes "leetcode" after shuffling.
 // Example 2:
 
-// Input: s = "abc", indices = [0,1,2]
+// Input: s = "abc", idxices = [0,1,2]
 // Output: "abc"
 // Explanation: After shuffling, each character remains in its position.
 
-const restoreString = function(s, indices) {
+const restoreString = function (s, idxices) {
   let arr = s.split('')
   let shuffled = []
-  
-  for(let i = 0; i < indices.length; i++){
-      shuffled.push(arr[indices.indexOf(i)])
+
+  for (let i = 0; i < idxices.length; i++) {
+    shuffled.push(arr[idxices.idxexOf(i)])
   }
   return shuffled.join('')
 };
@@ -810,3 +810,199 @@ const restoreString = function(s, indices) {
 
 // ------------------------------------------------------------------------------------------------- //
 
+function add(num1, num2) {
+  return parseInt(num1) + parseInt(num2)
+}
+
+// console.log("add", add("2", 3)); 
+
+// ------------------------------------------------------------------------------------------------- //
+
+function sum(...nums) {
+  return nums.reduce((acc, curr) => acc + curr)
+}
+
+// console.log("sum", sum(2, 3, 4, 5, 6));
+
+// ------------------------------------------------------------------------------------------------- //
+
+function stringIncludes(strA, strB) {
+  return strA.toLowerCase().includes(strB)
+}
+
+// console.log(
+//   "stringIncludes",
+//   stringIncludes("I drove to New York in a van with my friend", "new")
+// );
+
+// ------------------------------------------------------------------------------------------------- //
+
+function getNames(arr) {
+  let namearr = []
+  arr.map(el => el.name ? namearr.push(el) : null)
+  return namearr
+}
+
+// console.log(
+//   "getNames",
+//   getNames([
+//     { a: 1 },
+//     { name: "Jane" },
+//     {},
+//     { name: "Mark" },
+//     { name: "Sophia" },
+//     { b: 2 }
+//   ])
+// );
+
+// ------------------------------------------------------------------------------------------------- //
+
+function getLargestNumberidxex(arr) {
+  arr.sort((a, b) => b - 1)
+  return arr[0]
+}
+
+// console.log("getLargestNumberidxex", getLargestNumberidxex([7, 1, 4, 12, 9]));
+
+// ------------------------------------------------------------------------------------------------- //
+
+function delay(n) {
+  setTimeout(() => {
+  }, n)
+}
+
+// (async () => {
+//   console.time("Testing delay");
+//   await delay(1000);
+//   console.timeEnd("Testing delay");
+// })();
+
+// ------------------------------------------------------------------------------------------------- //
+
+const decodeMessage = function (key, message) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  let alphabetArr = alphabet.split('')
+  let keyWithoutSpace = key.replaceAll(' ', '')
+  let keyArr = [...new Set(keyWithoutSpace)]
+  let output = []
+  let arrOfMessage = message.split('')
+
+  arrOfMessage.map((char) => {
+    console.log('char', char);
+    if (char === ' ') {
+      output.push(char)
+    } else {
+      let currCharindex = keyArr.indexOf(char)
+      console.log(currCharindex);
+      output.push(alphabetArr[currCharindex])
+    }
+  })
+
+  return output.join('')
+};
+
+// console.log(decodeMessage("the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv"))
+// ------------------------------------------------------------------------------------------------- //
+
+// const sortSentence = function(s) {
+//   return s.split(' ')
+//   .sort((word1, word2) => word1[word1.length -1] - word2[word2.length -1])
+//   .map((word, idx) => word.replace(idx +1, ''))
+//   .join(' ')
+// };
+
+
+const sortSentence = function (s) {
+  const words = s.split(" ");
+  let result = [];
+  for (let i = 0; i < words.length; i++) {
+    let word = words[i];
+    const idx = word.split("").pop();
+    result[idx - 1] = word.slice(0, -1);
+  }
+
+  return result.join(" ");
+};
+
+// console.log(sortSentence('is2 sentence4 This1 a3'))
+
+// ------------------------------------------------------------------------------------------------- //
+
+
+
+function exchangeCandy(aliceSizes, bobSizes) {
+  let aliceTotalCandies = aliceSizes.reduce((acc, curr) => acc + curr)
+  let bobTotalCandies = bobSizes.reduce((acc, curr) => acc + curr)
+
+  let result = []
+
+  let sameTotal = (aliceTotalCandies + bobTotalCandies) / 2
+
+  for (let i = 0; i < aliceSizes.length; i++) {
+    let currAliceBox = aliceSizes[i]
+    for (let j = 0; j < bobSizes.length; j++) {
+      let currBobBox = bobSizes[j]
+
+      if (currAliceBox + currBobBox === sameTotal) {
+
+
+
+
+        return result
+      }
+    }
+  }
+
+
+
+}
+
+// ------------------------------------------------------------------------------------------------- //
+
+
+const countMatches = function (items, ruleKey, ruleValue) {
+  let count = 0;
+  let ruleIdx = 0;
+
+  if (ruleKey === 'type') {
+    ruleIdx = 0
+  } else if (ruleKey === 'color') {
+    ruleIdx = 1
+  } else {
+    ruleIdx = 2
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    let item = items[i]
+    if (item[ruleIdx] === ruleValue) {
+      count += 1
+    }
+  }
+  return count
+};
+
+// console.log(countMatches([["phone", "blue", "pixel"], ["computer", "silver", "lenovo"], ["phone", "gold", "iphone"]],
+//   "color",
+//   "silver"));
+// ------------------------------------------------------------------------------------------------- //
+
+const largestLocal = function (grid) {
+  const matrix = new Array(grid.length - 2).fill(0)
+    .map(() => new Array(grid[0].length - 2).fill(0));
+
+  for (let i = 0; i < grid[i].length - 2; i++) {
+    for (let j = 0; j < grid.length - 2; j++) {
+      matrix[i][j] = Math.max(
+        grid[i][j], grid[i][j + 1], grid[i][j + 2],
+        grid[i + 1][j], grid[i + 1][j + 1], grid[i + 1][j + 2],
+        grid[i + 2][j], grid[i + 2][j + 1], grid[i + 2][j + 2]
+      );
+
+    }
+  }
+
+  return matrix;
+};
+// ------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------------------------------------------------------- //

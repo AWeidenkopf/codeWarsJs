@@ -1021,6 +1021,50 @@ const arithmeticTriplets = function (nums, diff) {
   return count;
 };
 
-console.log(arithmeticTriplets([0, 1, 4, 6, 7, 10], 3));
+// console.log(arithmeticTriplets([0, 1, 4, 6, 7, 10], 3));
+// ------------------------------------------------------------------------------------------------- //
+const arrayStringsAreEqual = function(word1, word2) {
+    let concatWord1 = ''
+    let concatWord2 = ''
+    
+    for(let i = 0; i < word1.length; i++) {
+      concatWord1 = concatWord1.concat(word1[i])
+    }
+    
+    for(let i = 0; i < word2.length; i++) {
+      concatWord2 = concatWord2.concat(word2[i])
+    }
+    console.log(concatWord1);
+    console.log(concatWord2)
+    return concatWord1 === concatWord2
+  
+};
+
+// const arrayStringsAreEqual = function(word1, word2) {
+// return word1.join('') === word2.join('')
+// }
+
+// console.log(arrayStringsAreEqual(['ab', 'c'], ['a', 'bc']));
+// ------------------------------------------------------------------------------------------------- //
+
+const numberOfMatches = function(n) {
+  let matches = 0;
+  
+  while(n > 1) {
+  if(n % 2 === 0) {
+      matches += n/2
+      n = n/2
+  } else {
+      matches += (n-1)/2
+      n = (n-1)/2 +1
+  }
+  }
+  return matches
+};
+
 // ------------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------------------------------------------------------- //
+
